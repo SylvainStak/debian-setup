@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ "$(id -u)" -ne 0 ]; then
-  echo "setup.sh must be run as root" 1>&2
-  exit 1
-fi
+#if [ "$(id -u)" -ne 0 ]; then
+#  echo "setup.sh must be run as root" 1>&2
+#  exit 1
+#fi
 
 # Update system
 sudo apt update && sudo apt upgrade -y
@@ -23,6 +23,7 @@ packages=(
   network-manager
   pavucontrol
   flameshot
+  arandr
 )
 
 for package in "${packages[@]}"; do
