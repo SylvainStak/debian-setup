@@ -35,16 +35,3 @@ done
 cp -a .xinitrc ~/
 cp -a .bash_profile ~/
 cp -a .config ~/
-
-
-
-
-
-sudo sed -i 's/#NAutoVTs=6/NAutoVTs=1/' /etc/systemd/logind.conf
-sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
-sudo cat <<EOF > /etc/systemd/system/getty@tty1.service.d/override.conf
-[Service]
-ExecStart=
-ExecStart=-/sbin/agetty --autologin stacker --noclear %I 38400 linux
-EOF
-systemctl enable getty@tty1.service
