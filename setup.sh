@@ -6,7 +6,7 @@
 #fi
 
 # Update system
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt full-upgrade -y
 
 # Install packages
 packages=(
@@ -25,6 +25,10 @@ packages=(
   pavucontrol
   flameshot
   arandr
+  thunar
+  bat
+  cmatrix
+  tmux
 )
 
 for package in "${packages[@]}"; do

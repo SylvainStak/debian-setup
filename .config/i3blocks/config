@@ -1,4 +1,4 @@
-command=~/.config/i3blocks/$BLOCK_NAME
+command=~/.config/i3blocks/blocks/$BLOCK_NAME
 full_text=|
 separator=false
 separator_block_width=10
