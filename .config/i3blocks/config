@@ -1,5 +1,5 @@
 command=~/.config/i3blocks/$BLOCK_NAME
-full_text=〉
+full_text=|
 separator=false
 separator_block_width=10
 markup=none
