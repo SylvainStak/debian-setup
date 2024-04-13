@@ -18,6 +18,7 @@ packages=(
   x11-utils
   xinit
   i3
+  i3blocks
   alacritty
   chromium
   network-manager
