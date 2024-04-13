@@ -11,6 +11,5 @@ cd
 sudo apt install git
 git clone https://github.com/SylvainStak/debian-setup
 cd debian-setup
-chmod +x setup.sh
-sudo ./setup.sh
+./setup.sh
 ```
