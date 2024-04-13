@@ -1,4 +1,4 @@
-# debian-setup
+# debian-setupp
 
 first do a minimal debian install, then:
 ```
