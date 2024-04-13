@@ -6,7 +6,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Update system
-apt update && apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 
 # Install packages
 packages=(
@@ -26,5 +26,9 @@ packages=(
 )
 
 for package in "${packages[@]}"; do
-  apt install -y "$package"
+  sudo apt install -y "$package"
 done
+
+
+cp -a .xinitrc ~/
+cp -a .config ~/
