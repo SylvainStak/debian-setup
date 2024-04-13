@@ -7,8 +7,8 @@ window:
   dynamic_padding: false
   decorations_theme_variant: Dark
   padding:
-    x: 10
-    y: 10
+    x: 2
+    y: 2
 
 cursor:
   unfocused_hollow: true
