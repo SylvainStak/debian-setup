@@ -10,8 +10,19 @@ apt update && apt upgrade -y
 
 # Install packages
 packages=(
+  xserver-xorg-core
+  xserver-xorg-video-nouveau
+  xserver-xorg-input-evdev
+  x11-xserver-utils
+  x11-xkb-utils
+  x11-utils
+  xinit
   i3
   alacritty
+  chromium
+  network-manager
+  pavucontrol
+  flameshot
 )
 
 for package in "${packages[@]}"; do

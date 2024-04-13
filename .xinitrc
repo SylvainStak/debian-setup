@@ -1,0 +1,2 @@
+flameshot &
+exec i3
