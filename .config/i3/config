@@ -24,7 +24,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec alacritty
 
 # switch keyboard layout
-bindsym $mod+space exec (setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap es || setxkbmap us
+bindsym $mod+space exec ((setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap es || setxkbmap us) && pkill -SIGRTMIN+11 i3blocks
 
 # kill focused window
 bindsym $mod+Shift+c kill
