@@ -10,6 +10,7 @@ sudo apt update && sudo apt full-upgrade -y
 
 # Install packages
 packages=(
+  build-essential
   xserver-xorg-core
   xserver-xorg-video-nouveau
   xserver-xorg-input-evdev
@@ -29,6 +30,13 @@ packages=(
   bat
   cmatrix
   tmux
+  curl
+  firefox-esr
+  btop
+  zathura
+  tldr
+  feh
+  picom
 )
 
 for package in "${packages[@]}"; do
