@@ -11,6 +11,7 @@ sudo apt update && sudo apt full-upgrade -y
 # Install packages
 packages=(
   build-essential
+  linux-headers-$(uname -r)
   xserver-xorg-core
   xserver-xorg-video-nouveau
   xserver-xorg-input-evdev
