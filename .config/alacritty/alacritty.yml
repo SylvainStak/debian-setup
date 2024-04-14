@@ -1,8 +1,8 @@
 draw_bold_text_with_bright_colors: true
 
 window:
-  opacity: 0.95
-  title: Alacritty
+  opacity: 0.80
+  title: Terminal
   dynamic_title: false
   dynamic_padding: false
   decorations_theme_variant: Dark
@@ -15,3 +15,7 @@ cursor:
   style:
     shape: Block
     blinking: Off
+
+font:
+  normal:
+    family: "JetBrainsMono"
