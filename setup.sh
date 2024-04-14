@@ -83,3 +83,4 @@ done
 cp -a .xinitrc ~/
 cp -a .bash_profile ~/
 cp -a .config ~/
+cp -a .tmux.conf ~/
