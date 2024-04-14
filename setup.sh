@@ -38,6 +38,29 @@ packages=(
   tldr
   feh
   picom
+  vlc
+  thunderbird
+  gimp
+  libreoffice
+  audacity
+  ffmpeg
+  ripgrep
+  lolcat
+  obs-studio
+  jq
+  fzf
+  tree
+  rsync
+  locate
+  ncdu
+  neofetch
+  nmap
+  figlet
+  gdb
+  valgrind
+  clang
+  make
+  cmake
 )
 
 for package in "${packages[@]}"; do
