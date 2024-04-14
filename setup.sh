@@ -54,6 +54,7 @@ packages=(
   locate
   ncdu
   neofetch
+  cpufetch
   nmap
   figlet
   gdb
@@ -61,6 +62,17 @@ packages=(
   clang
   make
   cmake
+  wireshark
+  speedtest-cli
+  gparted
+  lm-sensors
+  nasm
+  aircrack-ng
+  lldb
+  dunst
+  lf
+  blender
+  xxd
 )
 
 for package in "${packages[@]}"; do
