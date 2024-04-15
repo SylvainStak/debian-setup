@@ -178,7 +178,18 @@ rm -rf obsidian.deb
 
 # Default apps
 xdg-mime default vlc.desktop video/*
+xdg-mime default vlc.desktop video/mp4
+xdg-mime default vlc.desktop video/x-matroska
+xdg-mime default vlc.desktop video/avi
 xdg-mime default nsxiv.desktop image/*
-xdg-mime default sublime_text.desktop text/*
+xdg-mime default nsxiv.desktop image/png
+xdg-mime default nsxiv.desktop image/jpeg
+xdg-mime default nsxiv.desktop image/gif
+xdg-mime default nsxiv.desktop image/tiff
+xdg-mime default nsxiv.desktop image/bmp
+xdg-mime default nsxiv.desktop image/svg+xml
+xdg-mime default nsxiv.desktop image/webp
+xdg-mime default nsxiv.desktop image/x-icon
+xdg-mime default sublime_text.desktop text/plain
 xdg-mime default org.pwmt.zathura-pdf-poppler.desktop application/pdf
 xdg-settings set default-web-browser chromium.desktop
