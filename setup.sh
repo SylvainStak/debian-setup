@@ -5,6 +5,9 @@
 #  exit 1
 #fi
 
+sudo add-apt-repository contrib -y
+sudo add-apt-repository non-free -y
+
 # Update system
 sudo apt update && sudo apt full-upgrade -y
 
@@ -15,6 +18,14 @@ packages=(
   apt-transport-https
   ca-certificates
   linux-headers-$(uname -r)
+  firmware-linux
+  firmware-linux-nonfree
+  unrar
+  libc6-i386
+  libc6-x32
+  default-jdk
+  #nvidia-detect
+  #nvidia-driver
   xserver-xorg-core
   xserver-xorg-video-nouveau
   xserver-xorg-input-evdev
