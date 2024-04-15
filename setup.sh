@@ -22,6 +22,8 @@ packages=(
   x11-xkb-utils
   x11-utils
   xinit
+  python3
+  python3-venv
   i3
   i3blocks
   alacritty
@@ -81,6 +83,7 @@ packages=(
   nsxiv
   snapd
   cmus
+  conky
 )
 
 for package in "${packages[@]}"; do
@@ -91,6 +94,7 @@ done
 cp -a .xinitrc ~/
 cp -a .bash_profile ~/
 cp -a .tmux.conf ~/
+cp -a .bashrc ~/
 cp -a .config ~/
 
 
@@ -120,19 +124,20 @@ sudo apt install sublime-text -y
 
 # Discord
 wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
-sudo apt install ./discord.deb
+sudo apt install ./discord.deb -y
 rm -rf discord.deb
 
 
 # Skype
 wget "https://go.skype.com/skypeforlinux-64.deb" -O skype.deb
-sudo apt install ./skype.deb
+sudo apt install ./skype.deb -y
 rm -rf skype.deb
+rm -rf ~/.config/autostart/skypeforlinux.desktop
 
 
 # Visual Studio Code
 wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O vscode.deb
-sudo apt install ./vscode.deb
+sudo apt install ./vscode.deb -y
 rm -rf vscode.deb
 
 
@@ -150,6 +155,25 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo snap install pycham-professional --classic
 sudo snap install postman
 sudo snap install spotify
+
+
+# Radare2
+git clone https://github.com/radareorg/radare2 ~/myapps/radare2
+/bin/bash ~/myapps/radare2/sys/install.sh
+
+
+# Ghidra
+sudo apt install openjdk-17-jdk -y
+curl -s https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/latest | jq -r '.assets[] | select(.name | test("ghidra.*\\.zip$"; "i")) | .browser_download_url' | xargs curl -o ghidra.zip -L
+unzip ghidra.zip -d ~/myapps
+ln -s ~/myapps/ghidra_*/ghidraRun ~/myapps/ghidra
+rm -rf ghidra.zip
+
+
+# Obsidian
+wget $(wget -q "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest" -O - | jq -r '.assets[] | select(.name | endswith("_amd64.deb")) | .browser_download_url') -O obsidian.deb
+sudo apt install ./obsidian.deb -y
+rm -rf obsidian.deb
 
 
 # Default apps
