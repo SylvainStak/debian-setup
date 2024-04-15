@@ -67,7 +67,6 @@ packages=(
   clang
   make
   cmake
-  wireshark
   speedtest-cli
   gparted
   lm-sensors
@@ -174,6 +173,11 @@ rm -rf ghidra.zip
 wget $(wget -q "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest" -O - | jq -r '.assets[] | select(.name | endswith("_amd64.deb")) | .browser_download_url') -O obsidian.deb
 sudo apt install ./obsidian.deb -y
 rm -rf obsidian.deb
+
+
+# Wireshark
+echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
+sudo DEBIAN_FRONTEND=noninteractive apt -y install wireshark
 
 
 # Default apps
