@@ -181,6 +181,11 @@ echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debc
 sudo DEBIAN_FRONTEND=noninteractive apt -y install wireshark
 
 
+# YT-DLP
+wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O ~/myapps/yt-dlp
+chmod a+rx ~/myapps/yt-dlp
+
+
 # Default apps
 xdg-mime default vlc.desktop video/*
 xdg-mime default vlc.desktop video/mp4
