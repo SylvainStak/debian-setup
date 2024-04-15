@@ -94,6 +94,7 @@ cp -a .xinitrc ~/
 cp -a .bash_profile ~/
 cp -a .tmux.conf ~/
 cp -a .bashrc ~/
+cp -a .gitconfig ~/
 cp -a .config ~/
 
 
