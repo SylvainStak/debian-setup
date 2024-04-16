@@ -38,6 +38,7 @@ packages=(
   i3
   i3blocks
   alacritty
+  vim
   chromium
   network-manager
   pavucontrol
@@ -106,6 +107,7 @@ cp -a .bash_profile ~/
 cp -a .tmux.conf ~/
 cp -a .bashrc ~/
 cp -a .gitconfig ~/
+cp -a .vimrc ~/
 cp -a .config ~/
 
 
