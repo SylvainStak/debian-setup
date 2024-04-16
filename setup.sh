@@ -199,6 +199,10 @@ wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O ~/myapp
 chmod a+rx ~/myapps/yt-dlp
 
 
+# Conky config
+git clone https://github.com/jxai/lean-conky-config ~/.config/conky
+
+
 # Default apps
 xdg-mime default vlc.desktop video/*
 xdg-mime default vlc.desktop video/mp4
