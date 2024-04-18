@@ -1,15 +1,5 @@
 #!/bin/bash
 
-#if [ "$(id -u)" -ne 0 ]; then
-#  echo "setup.sh must be run as root" 1>&2
-#  exit 1
-#fi
-
-# Do this manually, its giving problems on script
-#sudo add-apt-repository contrib -y
-#sudo add-apt-repository non-free -y
-#sudo apt install nvidia-detect nvidia-driver -y
-
 # Update system
 sudo apt update && sudo apt full-upgrade -y
 
