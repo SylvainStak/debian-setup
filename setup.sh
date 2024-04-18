@@ -20,6 +20,7 @@ packages=(
   linux-headers-$(uname -r)
   firmware-linux
   firmware-linux-nonfree
+  keychain
   cups
   printer-driver-cups-pdf
   bluetooth
