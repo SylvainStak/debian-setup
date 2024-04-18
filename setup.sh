@@ -5,8 +5,10 @@
 #  exit 1
 #fi
 
-sudo add-apt-repository contrib -y
-sudo add-apt-repository non-free -y
+# Do this manually, its giving problems on script
+#sudo add-apt-repository contrib -y
+#sudo add-apt-repository non-free -y
+#sudo apt install nvidia-detect nvidia-driver -y
 
 # Update system
 sudo apt update && sudo apt full-upgrade -y
@@ -28,15 +30,14 @@ packages=(
   libc6-i386
   libc6-x32
   default-jdk
-  nvidia-detect
-  nvidia-driver
   xserver-xorg-core
-  xserver-xorg-video-nouveau
+  xserver-xorg-video-nvidia
   xserver-xorg-input-evdev
   x11-xserver-utils
   x11-xkb-utils
   x11-utils
   xinit
+  xclip
   python3
   python3-venv
   i3
