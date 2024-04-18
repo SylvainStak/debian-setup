@@ -20,7 +20,10 @@ packages=(
   linux-headers-$(uname -r)
   firmware-linux
   firmware-linux-nonfree
-  unrar
+  cups
+  printer-driver-cups-pdf
+  bluetooth
+  blueman
   libc6-i386
   libc6-x32
   default-jdk
@@ -214,7 +217,6 @@ xdg-mime default nsxiv.desktop image/jpeg
 xdg-mime default nsxiv.desktop image/gif
 xdg-mime default nsxiv.desktop image/tiff
 xdg-mime default nsxiv.desktop image/bmp
-xdg-mime default nsxiv.desktop image/svg+xml
 xdg-mime default nsxiv.desktop image/webp
 xdg-mime default nsxiv.desktop image/x-icon
 xdg-mime default sublime_text.desktop text/plain

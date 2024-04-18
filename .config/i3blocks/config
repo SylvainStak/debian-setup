@@ -39,11 +39,11 @@ interval=10
 min_width=CPU: 100.00%
 
 
-[separator]
+#[separator]
 
 
-[bandwidth]
-interval=5
+#[bandwidth]
+#interval=5
 
 
 #[separator]
