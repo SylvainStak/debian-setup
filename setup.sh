@@ -165,7 +165,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 
 
 # Snap packages
-sudo snap install pycham-professional --classic
+sudo snap install pycharm-professional --classic
 sudo snap install postman
 sudo snap install spotify
 
