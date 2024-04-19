@@ -30,6 +30,7 @@ packages=(
   xclip
   python3
   python3-venv
+  python3-pip
   i3
   i3blocks
   alacritty
@@ -90,6 +91,7 @@ packages=(
   snapd
   cmus
   conky
+  guvcview
 )
 
 for package in "${packages[@]}"; do
@@ -101,6 +103,7 @@ cp -a .xinitrc ~/
 cp -a .bash_profile ~/
 cp -a .tmux.conf ~/
 cp -a .bashrc ~/
+cp -a .bash_aliases ~/
 cp -a .gitconfig ~/
 cp -a .vimrc ~/
 cp -a .config ~/

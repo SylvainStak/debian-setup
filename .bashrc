@@ -23,6 +23,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.affi_aliases ]; then
+    . ~/.affi_aliases
+fi
+
         RED="\[\033[0;31m\]"
      YELLOW="\[\033[1;33m\]"
       GREEN="\[\033[0;32m\]"
