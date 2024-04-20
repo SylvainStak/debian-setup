@@ -26,8 +26,8 @@ signal=10
 
 [memory]
 label=RAM
-command=free -m | awk 'NR==2{printf "%.1fG", $3/1024 }'
 interval=10
+signal=12
 
 
 [separator]
@@ -36,8 +36,6 @@ interval=10
 [cpu_usage]
 label=CPU
 interval=10
-min_width=CPU: 100.00%
-
 
 #[separator]
 

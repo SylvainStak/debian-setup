@@ -17,6 +17,7 @@ packages=(
   printer-driver-cups-pdf
   bluetooth
   blueman
+  stress
   libc6-i386
   libc6-x32
   default-jdk
