@@ -3,3 +3,5 @@
 	email = stackersap@gmail.com
 [push]
 	autoSetupRemote = true
+[core]
+	editor = vim
