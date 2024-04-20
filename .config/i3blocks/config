@@ -1,7 +1,7 @@
 command=~/.config/i3blocks/blocks/$BLOCK_NAME
 full_text=|
 separator=false
-separator_block_width=10
+separator_block_width=5
 markup=none
 
 
@@ -25,47 +25,26 @@ signal=10
 
 
 [separator]
+[cpu]
+interval=10
+color=#04FCF4
 [memory]
-label=RAM
 interval=10
 signal=12
-
-
-[separator]
-[cpu_usage]
-label=CPU
+color=#FFBC1F
+[gpu]
 interval=10
-
-#[separator]
-
-
-#[bandwidth]
-#interval=5
-
-
-#[separator]
-
-
-#[wifi]
-#interval=10
-
-
-#[separator]
-
-
-#[battery]
-#label=BAT
-#label=⚡
-#instance=1
-#interval=30
-
+color=#00FF00
 
 [separator]
 [calendar]
 interval=5
 
 
-#[time]
-#command=date '+%d-%m-%Y %H:%M:%S'
+#[separator]
+#[bandwidth]
 #interval=5
 
+#[separator]
+#[wifi]
+#interval=10

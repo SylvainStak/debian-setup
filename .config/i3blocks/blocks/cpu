@@ -1,0 +1,1 @@
+echo "$(mpstat 1 1 | awk '/Average:/ {print 100 - $12"%"}')  $(sensors | awk '/^Core 0:/ {print $3}')"
