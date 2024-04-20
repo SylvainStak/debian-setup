@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess as sp
+
+if os.environ.get("BLOCK_BUTTON"):
+    sp.run(["dunstctl", "set-paused", "toggle"], check=True)
+
+print('🔕' if sp.check_output(('dunstctl', 'is-paused')).strip().decode('UTF-8') == u'true' else '🔔')

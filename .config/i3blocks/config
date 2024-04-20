@@ -5,6 +5,11 @@ separator_block_width=10
 markup=none
 
 
+[dunst_toggle]
+interval=once
+
+
+[separator]
 [key_layout]
 label=⌨️
 interval=once
