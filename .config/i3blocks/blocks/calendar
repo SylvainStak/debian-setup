@@ -1,0 +1,9 @@
+WIDTH=600
+HEIGHT=480
+DATEFMT="+%a %d.%m.%Y %H:%M:%S"
+
+case "$BLOCK_BUTTON" in
+    1) i3-msg -q "exec yad --calendar --width=$WIDTH --height=$HEIGHT --undecorated --fixed --buttons-layout=center > /dev/null"
+esac
+
+echo $(date "$DATEFMT")

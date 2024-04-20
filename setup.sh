@@ -18,6 +18,9 @@ packages=(
   bluetooth
   blueman
   stress
+  yad
+  xdotool
+  locales-all
   libc6-i386
   libc6-x32
   default-jdk

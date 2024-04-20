@@ -12,8 +12,6 @@ signal=11
 
 
 [separator]
-
-
 [volume]
 label=♪
 instance=Master
@@ -22,8 +20,6 @@ signal=10
 
 
 [separator]
-
-
 [memory]
 label=RAM
 interval=10
@@ -31,8 +27,6 @@ signal=12
 
 
 [separator]
-
-
 [cpu_usage]
 label=CPU
 interval=10
@@ -62,10 +56,11 @@ interval=10
 
 
 [separator]
-
-
-
-[time]
-command=date '+%d-%m-%Y %H:%M:%S'
+[calendar]
 interval=5
+
+
+#[time]
+#command=date '+%d-%m-%Y %H:%M:%S'
+#interval=5
 
