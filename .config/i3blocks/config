@@ -22,6 +22,11 @@ interval=once
 signal=10
 
 [separator]
+[battery]
+interval=30
+markup=pango
+
+[separator]
 [internet]
 interval=30
 [bandwidth]
