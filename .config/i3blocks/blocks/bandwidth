@@ -88,3 +88,7 @@ if [[ "$tx_rate" -gt 1048576 ]]; then
 else
   echo -n "${tx_kib}K"
 fi
+
+case $BLOCK_BUTTON in
+  1) alacritty -e sh -c nmtui
+esac

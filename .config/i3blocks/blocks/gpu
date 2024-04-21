@@ -1,1 +1,7 @@
+#!/bin/bash
+
 nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used,memory.total --format=csv,noheader,nounits | awk -F', ' '{printf "%s%%  %sºC  %s / %s MB\n", $1, $2, $3, $4}'
+
+case $BLOCK_BUTTON in
+  1) alacritty -e sh -c nvtop
+esac

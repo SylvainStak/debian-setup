@@ -97,6 +97,7 @@ packages=(
   cmus
   conky
   guvcview
+  nvtop
 )
 
 for package in "${packages[@]}"; do

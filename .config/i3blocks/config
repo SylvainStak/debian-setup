@@ -8,13 +8,11 @@ markup=none
 [dunst_toggle]
 interval=once
 
-
 [separator]
 [key_layout]
 label=⌨️
 interval=once
 signal=11
-
 
 [separator]
 [volume]
@@ -23,13 +21,11 @@ instance=Master
 interval=once
 signal=10
 
-
 [separator]
 [internet]
 interval=30
 [bandwidth]
 interval=5
-
 
 [separator]
 [cpu]
@@ -37,12 +33,10 @@ interval=10
 color=#04FCF4
 [memory]
 interval=10
-signal=12
 color=#FFBC1F
 [gpu]
 interval=10
 color=#00FF00
-
 
 [separator]
 [calendar]

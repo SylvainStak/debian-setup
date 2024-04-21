@@ -1,5 +1,7 @@
+#!/bin/bash
+
+date "+%a %d/%m/%Y %H:%M:%S"
+
 case "$BLOCK_BUTTON" in
     1) i3-msg -q "exec yad --calendar --undecorated --fixed --buttons-layout=center > /dev/null"
 esac
-
-echo $(date "+%a %d/%m/%Y %H:%M:%S")
