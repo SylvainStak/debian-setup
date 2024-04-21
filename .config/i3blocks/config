@@ -25,6 +25,11 @@ signal=10
 
 
 [separator]
+[bandwidth]
+interval=5
+
+
+[separator]
 [cpu]
 interval=10
 color=#04FCF4
@@ -36,14 +41,10 @@ color=#FFBC1F
 interval=10
 color=#00FF00
 
+
 [separator]
 [calendar]
 interval=5
-
-
-#[separator]
-#[bandwidth]
-#interval=5
 
 #[separator]
 #[wifi]
