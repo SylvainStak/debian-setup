@@ -1,0 +1,33 @@
+#!/bin/python3
+#
+# Copyright (C) 2024 Sylvain Afonso
+
+import requests
+from time import strftime, localtime
+
+API_KEY = ''
+BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast'
+
+if not API_KEY:
+    print('Insert weather API key')
+    exit()
+
+# Santa Cruz de Tenerife (Canary Islands)
+LAT = '28.4682'
+LON = '-16.2546'
+
+forecast_data = requests.get(f'{BASE_URL}?appid={API_KEY}&lat={LAT}&lon={LON}&units=metric&cnt=1&lang=en').json()
+
+icon_rain = "<span font='FontAwesome'>\uf0e9</span>"
+rain = int(forecast_data['list'][0]['pop'] * 100)
+
+icon_temperature = "<span font='FontAwesome'>\uf2c8</span>"
+temperature = round(forecast_data['list'][0]['main']['temp'])
+
+icon_sunrise = "<span font='FontAwesome'>\uf185</span>"
+sunrise = strftime('%H:%M', localtime(forecast_data['city']['sunrise']))
+
+icon_sunset = "<span font='FontAwesome'>\uf186</span>"
+sunset = strftime('%H:%M', localtime(forecast_data['city']['sunset']))
+
+print(f"{icon_sunrise} {sunrise}  {icon_sunset} {sunset}  {icon_rain} {rain}%  {icon_temperature} {temperature}ºC")

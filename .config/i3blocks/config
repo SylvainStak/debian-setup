@@ -9,6 +9,11 @@ markup=none
 interval=once
 
 [separator]
+[weather]
+interval=1800
+markup=pango
+
+[separator]
 [key_layout]
 label=⌨️
 interval=once
