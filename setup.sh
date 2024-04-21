@@ -20,6 +20,7 @@ packages=(
   stress
   yad
   xdotool
+  iw
   locales-all
   libc6-i386
   libc6-x32

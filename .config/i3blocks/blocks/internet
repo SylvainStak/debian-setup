@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if ! ping -c 1 8.8.8.8 > /dev/null 2>&1; then
+    echo "🚫🌐 No Internet"
+    echo
+    echo \#FF0000
+    exit
+fi
+
+# Get primary network iface
+interface=$(ip route | grep '^default' | awk '{print $5}' | head -n 1)
+
+# Check if wireless or ethernet
+if [[ "$interface" =~ ^w ]]; then
+    # Get wifi strength
+    strength=$(grep "$interface" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+    echo "🛜 $strength%"
+else
+    echo "🌐 LAN"
+fi
+
+
+case $BLOCK_BUTTON in
+  1) alacritty -e sh -c nmtui;;
+esac

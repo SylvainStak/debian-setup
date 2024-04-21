@@ -25,6 +25,8 @@ signal=10
 
 
 [separator]
+[internet]
+interval=30
 [bandwidth]
 interval=5
 
@@ -45,7 +47,3 @@ color=#00FF00
 [separator]
 [calendar]
 interval=5
-
-#[separator]
-#[wifi]
-#interval=10
