@@ -98,6 +98,9 @@ packages=(
   conky
   guvcview
   nvtop
+  libnotify-bin
+  notify-osd
+  time
 )
 
 for package in "${packages[@]}"; do
