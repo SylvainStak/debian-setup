@@ -31,6 +31,7 @@ packages=(
   x11-xserver-utils
   x11-xkb-utils
   x11-utils
+  dbus-x11
   xinit
   xclip
   python3
