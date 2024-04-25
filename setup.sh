@@ -34,9 +34,15 @@ packages=(
   dbus-x11
   xinit
   xclip
+  xinput
   python3
   python3-venv
   python3-pip
+  python3-tk
+  tk-dev
+  tkcalendar
+  python3-pil
+  python3-pil.imagetk
   i3
   i3blocks
   alacritty

@@ -1,6 +1,4 @@
 #!/bin/python3
-#
-# Copyright (C) 2024 Sylvain Afonso
 
 import requests
 from time import strftime, localtime

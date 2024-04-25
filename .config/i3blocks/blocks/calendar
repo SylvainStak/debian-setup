@@ -1,7 +1,17 @@
-#!/bin/bash
+#!/bin/python3
 
-date "+%a %d/%m/%Y %H:%M:%S"
+import os
+from datetime import datetime
 
-case "$BLOCK_BUTTON" in
-    1) i3-msg -q "exec yad --calendar --undecorated --fixed --buttons-layout=center > /dev/null"
-esac
+print(datetime.now().strftime('%a %d/%m/%Y %H:%M:%S'))
+
+if os.environ.get('BLOCK_BUTTON'):
+    from tkinter import Tk
+    from tkcalendar import Calendar
+
+    window = Tk()
+    window.title('Calendar')
+    window.attributes('-type', 'dialog')
+    window.geometry('835x530')
+    Calendar(window, selectmode='none', font='JetBrainsMono 30', showothermonthdays=False).pack()
+    window.mainloop()
