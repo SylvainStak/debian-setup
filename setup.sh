@@ -62,7 +62,6 @@ packages=(
   btop
   zathura
   tldr
-  nitrogen
   feh
   picom
   vlc
