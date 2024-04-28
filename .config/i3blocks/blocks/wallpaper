@@ -71,6 +71,7 @@ class WallpaperSelector:
     
     def set_wallpaper(self, image_path):
         sp.run(['feh', '--bg-scale', image_path])
+        sp.run(['dunstify', 'Wallpaper Changed!', f'Using the following wallpaper:\n\n{image_path}'])
 
     def on_image_hover(self, lbl):
         lbl.config(borderwidth=2)
