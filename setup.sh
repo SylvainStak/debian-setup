@@ -197,6 +197,13 @@ ln -s ~/myapps/ghidra_*/ghidraRun ~/myapps/ghidra
 rm -rf ghidra.zip
 
 
+#GF (GDB Frontend debugger)
+#TODO: Setup config files for this tool
+git clone https://github.com/nakst/gf.git ~/myapps/gf
+/bin/bash ~/myapps/gf/build.sh
+ln -s ~/myapps/gf/gf2 ~/myapps/gf2
+
+
 # Obsidian
 wget $(wget -q "https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest" -O - | jq -r '.assets[] | select(.name | endswith("_amd64.deb")) | .browser_download_url') -O obsidian.deb
 sudo apt install ./obsidian.deb -y
