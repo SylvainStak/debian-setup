@@ -1,21 +1,21 @@
 #!/bin/python3
 
 class WallpaperSelector:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, app):
+        self.root = app
         self.root.title("Wallpaper Selector")
         self.root.geometry("900x600")
         self.root.attributes('-type', 'dialog')
+        
+        self.path_input = ttk.Entry(self.root)
+        self.path_input.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+        self.path_input.bind("<Return>", lambda ev: self.load_images())
+
+        self.browse_button = ttk.Button(self.root, text="🖿 Browse", command=self.browse_folder)
+        self.browse_button.grid(row=0, column=1, padx=10, pady=10)
 
         self.gallery_container = ttk.Frame(self.root)
         self.gallery_container.grid(row=1, column=0, columnspan=8, sticky="nsew")
-
-        self.path_input = ttk.Entry(self.root)
-        self.path_input.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
-        self.path_input.bind("<Return>", lambda event: self.load_images())
-
-        self.browse_button = ttk.Button(self.root, text="Browse", command=self.browse_folder)
-        self.browse_button.grid(row=0, column=1, padx=10, pady=10)
 
         self.gallery_canvas = tk.Canvas(self.gallery_container)
         self.gallery_canvas.grid(row=0, column=0, sticky="nsew")
@@ -33,22 +33,23 @@ class WallpaperSelector:
         self.gallery_container.grid_rowconfigure(0, weight=1)
         self.gallery_container.grid_columnconfigure(0, weight=1)
         
+        #TODO: Use event instead of boolean to stop the thread
         self.thread_stop = False
         self.thread = None
 
-    def browse_folder(self):
-        directory = filedialog.askdirectory(title='Select a Folder', initialdir='/home/stacker/.config/wallpapers')
-        if not directory:
-            label = ttk.Label(self.inner_frame, text='NOT A DIR').pack()
+        self.default_initialdir = '/home/stacker/.config/wallpapers'
+        self.path_input.insert(0, self.default_initialdir)
+        self.load_images()
 
+    def browse_folder(self):
+        input_text = self.path_input.get()
+        initialdir = input_text if os.path.isdir(input_text) else self.default_initialdir
+        directory = filedialog.askdirectory(title='Select a Folder', initialdir=initialdir)
         self.path_input.delete(0, tk.END)
         self.path_input.insert(0, directory)
         self.load_images()
 
-
     def load_images(self):
-        directory = self.path_input.get()
-
         if self.thread is not None:
             self.thread_stop = True
             self.thread.join(timeout=0)
@@ -56,18 +57,18 @@ class WallpaperSelector:
                 return
 
         self.clear_images()
-        self.thread = threading.Thread(target=self.display_images, args=(directory,))
         self.thread_stop = False
+        self.thread = threading.Thread(target=self.display_images)
         self.thread.start()
-
         self.monitor_thread()
 
     def monitor_thread(self):
         if self.thread.is_alive():
             self.root.after(100, self.monitor_thread)
-        else:
-            if self.thread_stop:
-                self.load_images()
+            return
+        
+        if self.thread_stop:
+            self.load_images()
     
     def set_wallpaper(self, image_path):
         sp.run(['feh', '--bg-scale', image_path])
@@ -76,58 +77,52 @@ class WallpaperSelector:
         lbl.config(borderwidth=2)
         lbl.grid(padx=3, pady=3)
         self.root.config(cursor='hand2')
-
     
     def on_image_unhover(self, lbl):
         lbl.config(borderwidth=0)
         lbl.grid(padx=5, pady=5)
         self.root.config(cursor='arrow')
 
-
-    def display_images(self, directory):
-        if not os.path.isdir(directory):
-            label = ttk.Label(self.inner_frame, text='NOT A DIR').pack()
-            return
-
-        x = [y for y in os.listdir(directory) if y.endswith(('.png', '.jpg', '.jpeg'))]
-
-        if not len(x):
-            label = ttk.Label(self.inner_frame, text='NO WALLPAPERS HERE').pack()
-            return
-
-        for index, image_file in enumerate(os.listdir(directory)):
-            if self.thread_stop:
-                return
-
-            if image_file.lower().endswith(('.png', '.jpg', '.jpeg')):
-                image_path = os.path.join(directory, image_file)
-                image = Image.open(image_path)
-                image.thumbnail((100, 100), Image.NEAREST)
-                photo = ImageTk.PhotoImage(image)
-                
-
-                label = tk.Label(self.inner_frame, image=photo, borderwidth=0, relief='solid')
-                label.image = photo
-                label.grid(row=index // 8, column=index % 8, padx=5, pady=5)
-                label.bind("<Button-1>", lambda event, image_path=image_path: self.set_wallpaper(image_path))
-                label.bind("<Enter>", lambda event, lbl=label: self.on_image_hover(lbl))
-                label.bind("<Leave>", lambda event, lbl=label: self.on_image_unhover(lbl))
-
     def clear_images(self):
         for widget in self.inner_frame.winfo_children():
             widget.destroy()
 
-import os
+    def display_images(self):
+        input_text = self.path_input.get()
+        if not os.path.isdir(input_text):
+            ttk.Label(self.inner_frame, text=f"Couldn't find any directory using the following path: \"{input_text}\"").pack()
+            return
 
+        images_in_dir = [file for file in os.listdir(input_text) if file.endswith(('.png', '.jpg', '.jpeg'))]
+        if not len(images_in_dir):
+            ttk.Label(self.inner_frame, text=f"Couldn't find any images in the following directory: \"{input_text}\"").pack()
+            return
+
+        for index, image_file in enumerate(images_in_dir):
+            if self.thread_stop: return
+            image_path = os.path.join(input_text, image_file)
+            image = Image.open(image_path)
+            image.thumbnail((100, 100), Image.NEAREST)
+            photo = ImageTk.PhotoImage(image)
+            label = tk.Label(self.inner_frame, image=photo, borderwidth=0, relief='solid')
+            label.image = photo
+            label.grid(row=index//8, column=index%8, padx=5, pady=5)
+            label.bind("<Button-1>", lambda event, image_path=image_path: self.set_wallpaper(image_path))
+            label.bind("<Enter>", lambda event, lbl=label: self.on_image_hover(lbl))
+            label.bind("<Leave>", lambda event, lbl=label: self.on_image_unhover(lbl))
+
+
+import os
 if os.environ.get("BLOCK_BUTTON"):
+    import threading
     import tkinter as tk
+    import subprocess as sp
     from tkinter import filedialog, ttk
     from PIL import Image, ImageTk
-    import threading
-    import subprocess as sp
-    root = tk.Tk()
-    ttk.Style(root).theme_use('default')
-    app = WallpaperSelector(root)
-    root.mainloop()
+
+    app = tk.Tk()
+    ttk.Style(app).theme_use('clam')
+    WallpaperSelector(app)
+    app.mainloop()
 
 print('🖼️')
