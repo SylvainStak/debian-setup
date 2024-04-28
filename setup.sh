@@ -35,6 +35,7 @@ packages=(
   xinit
   xclip
   xinput
+  libimlib2-dev
   python3
   python3-venv
   python3-pip
@@ -61,6 +62,7 @@ packages=(
   btop
   zathura
   tldr
+  nitrogen
   feh
   picom
   vlc

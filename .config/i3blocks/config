@@ -9,6 +9,10 @@ markup=none
 interval=once
 
 [separator]
+[wallpaper]
+interval=once
+
+[separator]
 [weather]
 interval=1800
 markup=pango
