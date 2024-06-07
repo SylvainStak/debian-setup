@@ -48,6 +48,7 @@ packages=(
   i3blocks
   alacritty
   vim
+  nvim
   chromium
   network-manager
   pavucontrol
@@ -108,6 +109,8 @@ packages=(
   nvtop
   libnotify-bin
   notify-osd
+  nodejs
+  npm
   time
 )
 
