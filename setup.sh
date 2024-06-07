@@ -48,7 +48,6 @@ packages=(
   i3blocks
   alacritty
   vim
-  nvim
   chromium
   network-manager
   pavucontrol
@@ -111,6 +110,7 @@ packages=(
   notify-osd
   nodejs
   npm
+  gettext
   time
 )
 
