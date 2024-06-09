@@ -33,10 +33,6 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagn
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -68,25 +64,11 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
-			require("copilot").setup({})
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
 		end,
-	},
-	{
-		"romgrk/barbar.nvim",
-		dependencies = {
-			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
-		},
-		init = function()
-			vim.g.barbar_auto_setup = false
-		end,
-		opts = {
-			-- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-			-- animation = true,
-			-- insert_at_start = true,
-			-- …etc.
-		},
-		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
 	{
 		"zbirenbaum/copilot-cmp",
@@ -94,6 +76,20 @@ require("lazy").setup({
 		config = function()
 			require("copilot_cmp").setup()
 		end,
+	},
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			animation = false,
+			tabpages = true,
+		},
 	},
 	{
 		"iamcco/markdown-preview.nvim",
@@ -284,6 +280,8 @@ require("lazy").setup({
 				"cpptools",
 				"cpplint",
 				"bash-language-server",
+				"blue",
+				"prettier",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -322,6 +320,9 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				python = { "blue" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 			},
 		},
 	},
@@ -372,10 +373,10 @@ require("lazy").setup({
 					end, { "i", "s" }),
 				}),
 				sources = {
+					{ name = "copilot" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
-					{ name = "copilot" },
 				},
 			})
 		end,
@@ -384,7 +385,7 @@ require("lazy").setup({
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("nightfox")
+			vim.cmd.colorscheme("terafox")
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
@@ -503,18 +504,6 @@ vim.keymap.set("n", "<leader>a", function()
 end)
 vim.keymap.set("n", "<C-e>", function()
 	harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-vim.keymap.set("n", "<C-h>", function()
-	harpoon:list():select(1)
-end)
-vim.keymap.set("n", "<C-t>", function()
-	harpoon:list():select(2)
-end)
-vim.keymap.set("n", "<C-n>", function()
-	harpoon:list():select(3)
-end)
-vim.keymap.set("n", "<C-s>", function()
-	harpoon:list():select(4)
 end)
 vim.keymap.set("n", "<C-S-P>", function()
 	harpoon:list():prev()
