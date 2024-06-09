@@ -92,15 +92,6 @@ require("lazy").setup({
 		},
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		opts = {},
-	},
-	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		opts = {
@@ -373,10 +364,10 @@ require("lazy").setup({
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "copilot" },
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
+					{ name = "copilot", group_index = 2 },
+					{ name = "nvim_lsp", group_index = 2 },
+					{ name = "path", group_index = 2 },
+					{ name = "luasnip", group_index = 2 },
 				},
 			})
 		end,
