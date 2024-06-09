@@ -19,7 +19,7 @@ markup=pango
 
 [separator]
 [key_layout]
-label=⌨️
+label=
 interval=once
 signal=11
 
