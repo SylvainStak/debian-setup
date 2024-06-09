@@ -16,7 +16,7 @@ if [[ "$interface" =~ ^w ]]; then
     strength=$(grep "$interface" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
     echo "  $strength%"
 else
-    echo "󰈁 Wired"
+    echo "󰈁 Ethernet"
 fi
 
 
