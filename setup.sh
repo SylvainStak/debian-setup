@@ -129,11 +129,28 @@ cp -a .vimrc ~/
 cp -a .config ~/
 
 
-# Install JetbrainsMono Font
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+# Install JetbrainsMonoNerdFont
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+mkdir -p JetBrainsMono
+tar -xf JetBrainsMono.tar.xz -C JetBrainsMono
+mkdir -p ~/.fonts
+mv JetBrainsMono/JetBrainsMonoNerdFont* ~/.fonts/
+fc-cache -fv
+rm JetBrainsMono.tar.xz
+rm -rf JetBrainsMono
 
 
 mkdir -p ~/myapps
+
+
+# Neovim
+cd ~/myapps
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make -j CMAKE_BUILD_TYPE=RelWithDebInfo
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+cd ~
 
 
 # Toipe

@@ -18,4 +18,15 @@ cursor:
 
 font:
   normal:
-    family: "JetBrainsMono"
+    family: "JetBrainsMonoNerdFont"
+    style: "Regular"
+  bold:
+    family: "JetBrainsMonoNerdFont"
+    style: "Bold"
+  italic:
+    family: "JetBrainsMonoNerdFont"
+    style: "Italic"
+  bold_italic:
+    family: "JetBrainsMonoNerdFont"
+    style: "Bold Italic"
+  size: 12.0
