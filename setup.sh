@@ -150,7 +150,7 @@ cd neovim
 git checkout stable
 make -j CMAKE_BUILD_TYPE=RelWithDebInfo
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
-cd ~
+cd ~/debian-setup
 
 
 # Toipe
