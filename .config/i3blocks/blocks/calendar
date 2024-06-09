@@ -13,5 +13,5 @@ if os.environ.get('BLOCK_BUTTON'):
     window.title('Calendar')
     window.attributes('-type', 'dialog')
     window.geometry('835x530')
-    Calendar(window, selectmode='none', font='JetBrainsMono 30', showothermonthdays=False).pack()
+    Calendar(window, selectmode='none', font='JetBrainsMonoNerdFont 30', showothermonthdays=False).pack()
     window.mainloop()

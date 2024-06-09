@@ -176,11 +176,11 @@ sudo apt install ./discord.deb -y
 rm -rf discord.deb
 
 
-# Skype
-wget "https://go.skype.com/skypeforlinux-64.deb" -O skype.deb
-sudo apt install ./skype.deb -y
-rm -rf skype.deb
-rm -rf ~/.config/autostart/skypeforlinux.desktop
+# Skype (Disabled because sudo apt update gets stuck, need to investigate a good way to automate this)
+# wget "https://go.skype.com/skypeforlinux-64.deb" -O skype.deb
+# sudo apt install ./skype.deb -y
+# rm -rf skype.deb
+# rm -rf ~/.config/autostart/skypeforlinux.desktop
 
 
 # Visual Studio Code

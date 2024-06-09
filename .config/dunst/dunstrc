@@ -5,7 +5,7 @@
     width = (0, 300)
     horizontal_padding = 2
     transparency = 5
-    font = JetBrainsMono
+    font = JetBrainsMonoNerdFont
     format = "<b>%s</b>\n\n%b"
 
 [urgency_low]
