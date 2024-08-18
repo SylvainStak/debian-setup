@@ -28,6 +28,7 @@ packages=(
   xserver-xorg-core
   xserver-xorg-video-nvidia
   xserver-xorg-input-evdev
+  xserver-xorg-input-all
   x11-xserver-utils
   x11-xkb-utils
   x11-utils
