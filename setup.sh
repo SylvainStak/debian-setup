@@ -37,6 +37,8 @@ packages=(
   xclip
   xinput
   libimlib2-dev
+  mesa-utils
+  libgl1-mesa-dev
   python3
   python3-venv
   python3-pip
