@@ -2,6 +2,7 @@
 
 sudo apt update -y && sudo apt upgrade -y
 mkdir -p ~/myapps
+mkdir -p ~/.config
 
 packages=(
   python3
@@ -33,11 +34,9 @@ cp -a .bashrc ~/
 cp -a .bash_aliases ~/
 cp -a .gitconfig ~/
 cp -a .vimrc ~/
-cp -a .config/nvim ~/.config/
+cp -a .config/nvim ~/.config/nvim
 
 cp -r /mnt/c/Users/afons/.ssh ~/.ssh
 chmod 600 ~/.ssh/id_ed25519
 
 source ~/.bashrc
-
-rm -rf ~/debian-setup
