@@ -33,9 +33,11 @@ cp -a .bashrc ~/
 cp -a .bash_aliases ~/
 cp -a .gitconfig ~/
 cp -a .vimrc ~/
-cp -a .config/nvim ~/
+cp -a .config/nvim ~/.config/
 
 cp -r /mnt/c/Users/afons/.ssh ~/.ssh
 chmod 600 ~/.ssh/id_ed25519
 
 source ~/.bashrc
+
+rm -rf ~/debian-setup
