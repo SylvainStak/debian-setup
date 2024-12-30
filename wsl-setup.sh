@@ -35,4 +35,7 @@ cp -a .gitconfig ~/
 cp -a .vimrc ~/
 cp -a .config/nvim ~/
 
+cp -r /mnt/c/Users/afons/.ssh ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
+
 source ~/.bashrc
