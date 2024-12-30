@@ -28,7 +28,6 @@ packages=(
 )
 sudo apt install -y "${packages[@]}"
 
-cp -a .bash_profile ~/
 cp -a .tmux.conf ~/
 cp -a .bashrc ~/
 cp -a .bash_aliases ~/
